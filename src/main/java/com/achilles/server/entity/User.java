@@ -1,5 +1,7 @@
 package com.achilles.server.entity;
 
+import com.achilles.model.entity.BaseEntity;
+
 public class User extends BaseEntity {
 
     private String uuid;

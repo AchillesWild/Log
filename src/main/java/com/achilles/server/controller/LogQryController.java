@@ -23,6 +23,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
+// http://localhost:8080/log/get/count
+
 @Slf4j
 @RestController
 @RequestMapping(value = "/log", produces = MediaType.APPLICATION_JSON_VALUE)

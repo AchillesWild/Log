@@ -1,12 +1,13 @@
 package com.achilles.server.model.query;
 
 
+import com.achilles.model.query.PageQuery;
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
-public class LogTimeInfoQuery extends PageQuery {
+public class LogTimeInfoQuery extends PageQuery  {
 
     private String clz;
 

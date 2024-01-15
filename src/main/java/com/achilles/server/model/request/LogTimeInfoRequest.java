@@ -1,6 +1,7 @@
 package com.achilles.server.model.request;
 
 
+import com.achilles.model.request.PageRequest;
 import lombok.Getter;
 import lombok.Setter;
 
