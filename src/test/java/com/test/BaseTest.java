@@ -1,4 +1,4 @@
-package com.test.controller;
+package com.test;
 
 import com.achilles.SpringBootMongoDBApplication;
 import com.achilles.server.controller.SpringBootMongoDBController;
@@ -9,13 +9,6 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes= SpringBootMongoDBApplication.class)
-public class ControllerTest{
+public class BaseTest {
 
-    @Autowired
-    SpringBootMongoDBController demoController;
-
-//    @Test
-//    public void  test(){
-//        demoController.getConfig();
-//    }
 }

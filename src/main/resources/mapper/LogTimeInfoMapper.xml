@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.achilles.server.dao.LogTimeInfoDao">
+  <resultMap id="BaseResultMap" type="com.achilles.server.entity.LogTimeInfo">
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="clz" jdbcType="VARCHAR" property="clz" />
+    <result column="method" jdbcType="VARCHAR" property="method" />
+    <result column="params" jdbcType="VARCHAR" property="params" />
+    <result column="time" jdbcType="INTEGER" property="time" />
+    <result column="trace_id" jdbcType="VARCHAR" property="traceId" />
+    <result column="create_date" jdbcType="TIMESTAMP" property="createDate" />
+    <result column="create_time" jdbcType="BIGINT" property="createTime" />
+  </resultMap>
+
+  <sql id="allColumns">
+    id,clz,method,params,time,trace_id,create_date,create_time
+  </sql>
+
+  <insert id="batchInsert" parameterType="java.util.List" keyProperty="id" >
+    INSERT INTO log_time_info
+      (
+        id,
+        clz,
+        method,
+        params,
+        time,
+        trace_id,
+        create_date,
+        create_time
+     )
+        VALUES
+    <foreach collection="list" index="index" item="item" separator=",">
+      (
+        #{item.id,jdbcType=VARCHAR},
+        #{item.clz,jdbcType=VARCHAR},
+        #{item.method,jdbcType=VARCHAR},
+        #{item.params,jdbcType=VARCHAR},
+        #{item.time,jdbcType=INTEGER},
+        #{item.traceId,jdbcType=VARCHAR},
+        #{item.createDate,jdbcType=TIMESTAMP},
+        #{item.createTime,jdbcType=BIGINT}
+      )
+      </foreach>
+  </insert>
+
+  <sql id="whereCondition">
+    <where>
+      <if test="clz != null and clz!=''">
+        AND clz like concat('%', #{clz},'%')
+      </if>
+      <if test="method != null and method!=''">
+        AND method like concat('%', #{method},'%')
+      </if>
+      <if test="traceId != null and traceId!=''">
+        AND trace_id = #{traceId,jdbcType=VARCHAR}
+      </if>
+      <if test="timeMIn != null">
+        AND time &gt;= #{timeMIn,jdbcType=INTEGER}
+      </if>
+      <if test="timeMax != null">
+        AND time &lt;= #{timeMax,jdbcType=INTEGER}
+      </if>
+      <if test="createTimeStart != null">
+        AND create_time &gt;= #{createTimeStart,jdbcType=BIGINT}
+      </if>
+      <if test="createTimeEnd != null">
+        AND create_time &lt;= #{createTimeEnd,jdbcType=BIGINT}
+      </if>
+    </where>
+  </sql>
+
+  <select id="query" parameterType="java.util.Map" resultMap="BaseResultMap">
+    select
+        <include refid="allColumns"/>
+    from
+        log_time_info
+    <include refid="whereCondition"/>
+    limit #{offSet,jdbcType=INTEGER},#{pageSize,jdbcType=INTEGER}
+  </select>
+
+  <select id="count" parameterType="java.util.Map" resultType="long">
+    select
+        COUNT(*)
+    from
+        log_time_info
+    <include refid="whereCondition"/>
+  </select>
+
+  <delete id="deleteAll">
+    delete from log_time_info
+  </delete>
+
+  <delete id="deleteById">
+    delete from log_time_info where id = #{id,jdbcType=VARCHAR}
+  </delete>
+
+  <select id="selectById" parameterType="java.util.Map" resultMap="BaseResultMap">
+    select
+        <include refid="allColumns"/>
+    from
+        log_time_info
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+
+  <select id="selectByTraceId" parameterType="java.util.Map" resultMap="BaseResultMap">
+    select
+        <include refid="allColumns"/>
+    from
+        log_time_info
+    where trace_id = #{traceId,jdbcType=VARCHAR}
+  </select>
+</mapper>
