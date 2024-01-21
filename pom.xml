@@ -9,7 +9,7 @@
         <version>3.2.1</version>
         <relativePath/>
     </parent>
-    <groupId>org.example</groupId>
+    <groupId>org.achilles</groupId>
     <artifactId>SpringBootMongoDbMysql</artifactId>
     <version>1.0</version>
 
