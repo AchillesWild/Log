@@ -12,12 +12,12 @@ import java.sql.SQLException;
 
 @SpringBootApplication
 @ServletComponentScan
-public class SpringBootMongoDbMysqlApplication {
+public class LogApplication {
 
 	public static void main(String[] args) {
 
 
-		ApplicationContext applicationContext = SpringApplication.run(SpringBootMongoDbMysqlApplication.class, args);
+		ApplicationContext applicationContext = SpringApplication.run(LogApplication.class, args);
 		DataSource dataSource = applicationContext.getBean(DataSource.class);
 
 		System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ datasource is : " + dataSource+"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");

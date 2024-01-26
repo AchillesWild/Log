@@ -3,6 +3,7 @@ package com.achilles.server.controller;
 import com.achilles.model.response.DataResult;
 import com.achilles.model.response.PageResult;
 import com.achilles.model.response.code.BaseResultCode;
+import com.achilles.server.biz.LogTimeInfoBiz;
 import com.achilles.server.common.exception.BizException;
 import com.achilles.server.model.query.LogTimeInfoQuery;
 import com.achilles.server.model.request.LogTimeInfoRequest;
@@ -10,12 +11,10 @@ import com.achilles.server.model.response.LogTimeInfoCommonVO;
 import com.achilles.server.model.response.LogTimeInfoCountVO;
 import com.achilles.server.model.response.LogTimeInfoVO;
 import com.achilles.tool.date.DateUtil;
-import com.achilles.server.biz.LogTimeInfoBiz;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -27,7 +26,7 @@ import java.util.List;
 
 @Slf4j
 @RestController
-@RequestMapping(value = "/log", produces = MediaType.APPLICATION_JSON_VALUE)
+@RequestMapping
 public class LogQryController {
 
     @Autowired

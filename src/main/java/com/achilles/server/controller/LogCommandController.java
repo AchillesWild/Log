@@ -2,14 +2,13 @@ package com.achilles.server.controller;
 
 import com.achilles.model.response.BaseResult;
 import com.achilles.model.response.code.BaseResultCode;
+import com.achilles.server.biz.LogTimeInfoBiz;
 import com.achilles.server.common.exception.BizException;
 import com.achilles.server.dao.LogTimeInfoDao;
 import com.achilles.server.dao.LogTimeInfoMongo;
 import com.achilles.server.model.response.LogTimeInfoVO;
-import com.achilles.server.biz.LogTimeInfoBiz;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @Slf4j
 @RestController
-@RequestMapping(value = "/log", produces = MediaType.APPLICATION_JSON_VALUE)
+@RequestMapping
 public class LogCommandController {
 
     @Autowired
