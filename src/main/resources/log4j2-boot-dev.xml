@@ -107,10 +107,10 @@ Configuration后面的status，这个用于设置log4j2自身内部的信息输�
 
         <root level="info">
             <appender-ref ref="Console"/>
-                        <appender-ref ref="FileLog"/>
+<!--                        <appender-ref ref="FileLog"/>-->
                         <appender-ref ref="RollingFileInfo"/>
-            <!--            <appender-ref ref="RollingFileWarn"/>-->
-            <!--            <appender-ref ref="RollingFileError"/>-->
+                        <appender-ref ref="RollingFileWarn"/>
+                        <appender-ref ref="RollingFileError"/>
         </root>
     </loggers>
 

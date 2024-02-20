@@ -27,7 +27,7 @@ public class ConsumerListener {
         if (kafkaMessage.isPresent()){
             Object message = kafkaMessage.get();
             log.info(" record : {}", record);
-            log.info("message : {}", message);
+//            log.info("message : {}", message);
             LogTimeInfo logTimeInfo = JsonUtil.fromJson(String.valueOf(message), LogTimeInfo.class);
             logTimeInfoList.add(logTimeInfo);
             if (logTimeInfoList.size() == 10) {
