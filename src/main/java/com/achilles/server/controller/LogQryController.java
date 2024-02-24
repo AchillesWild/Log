@@ -80,10 +80,10 @@ public class LogQryController {
         LogTimeInfoQuery logTimeInfoQuery = new LogTimeInfoQuery();
         BeanUtils.copyProperties(request,logTimeInfoQuery);
         if (StringUtils.isNotEmpty(request.getCreateTimeStart())) {
-            logTimeInfoQuery.setCreateTimeStart(DateUtil.getTimeMillis(DateUtil.FORMAT_YYYY_MM_DD_HHMMSS,request.getCreateTimeStart()));
+            logTimeInfoQuery.setCreateTimeStart(DateUtil.getCurrentMillis(DateUtil.FORMAT_YYYY_MM_DD_HHMMSS,request.getCreateTimeStart()));
         }
         if (StringUtils.isNotEmpty(request.getCreateTimeEnd())) {
-            logTimeInfoQuery.setCreateTimeEnd(DateUtil.getTimeMillis(DateUtil.FORMAT_YYYY_MM_DD_HHMMSS,request.getCreateTimeEnd()));
+            logTimeInfoQuery.setCreateTimeEnd(DateUtil.getCurrentMillis(DateUtil.FORMAT_YYYY_MM_DD_HHMMSS,request.getCreateTimeEnd()));
         }
         return logTimeInfoQuery;
     }
