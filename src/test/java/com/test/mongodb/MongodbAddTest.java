@@ -1,17 +1,13 @@
 package com.test.mongodb;
 
-import com.achilles.server.entity.TempImage;
 import com.achilles.server.entity.User;
 import com.achilles.tool.date.DateUtil;
-import com.achilles.tool.generate.unique.GenerateUniqueUtil;
 import com.test.BaseTest;
 import com.test.mongodb.model.MongoDemo;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
